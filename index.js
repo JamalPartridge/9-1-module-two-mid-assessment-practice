@@ -41,7 +41,14 @@ const characters = require('./swapi');
  *
  */
 
-function listAllCharacters() {}
+function listAllCharacters(characters) {
+  if(!characters.length){
+    throw "Error"
+  //Throws error if there is no characters.  
+  }
+  return characters.map(char => char.name)
+  //Returns all character names from an array of characters
+}
 
 //UNCOMMENT THE LINES ONE AT A TIME BELOW TO TEST YOUR SOLUTION MANUALLY, THEN COMMENT BACK IN
 // console.log(listAllCharacters([]));
@@ -61,7 +68,11 @@ function listAllCharacters() {}
  * No example for this one. You should be able to find the average at this point
  */
 
-function averageHeightOfAllCharacters() {}
+function averageHeightOfAllCharacters(characters) {
+  characters.forEach((person) => {
+    return person.height
+  })
+}
 
 //UNCOMMENT THE LINES ONE AT A TIME BELOW TO TEST YOUR SOLUTION MANUALLY, THEN COMMENT BACK IN
 //console.log(averageHeightOfAllCharacters(characters))
@@ -98,7 +109,14 @@ function averageHeightOfAllCharacters() {}
  *
  */
 
-function checkForEyeColor() {}
+function checkForEyeColor(characters, eyes) {
+  if(!characters.length){
+    throw "No one has that eye color"
+  //Throws error if array is empty  
+  }
+  return characters.some(char => char.eye_color === eyes)
+  //Returns a boolean for eye color using .some()
+}
 
 //UNCOMMENT THE LINES ONE AT A TIME BELOW TO TEST YOUR SOLUTION MANUALLY, THEN COMMENT BACK IN
 // console.log(checkForEyeColor([]));
@@ -150,7 +168,9 @@ function checkForEyeColor() {}
  *
  */
 
-function getAllCharactersCreatedAfterYear() {}
+function getAllCharactersCreatedAfterYear(characters, date) {
+  return characters.filter(char => char.created > date)
+}
 
 //UNCOMMENT THE LINES ONE AT A TIME BELOW TO TEST YOUR SOLUTION MANUALLY, THEN COMMENT BACK IN
 // console.log(getAllCharactersCreatedAfterYear(characters, 2016));
@@ -205,7 +225,12 @@ function getAllCharactersCreatedAfterYear() {}
    }
  */
 
-function getCharacterInMovie() {}
+function getCharacterInMovie(characters, movie) {
+  if (!movie){
+    throw "Error"
+  }
+  return characters.find(char => char.films === movie)
+}
 
 //UNCOMMENT THE LINES ONE AT A TIME BELOW TO TEST YOUR SOLUTION MANUALLY, THEN COMMENT BACK IN
 // console.log(getCharacterInMovie(characters, ''));
