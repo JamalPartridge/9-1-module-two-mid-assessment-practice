@@ -69,9 +69,15 @@ function listAllCharacters(characters) {
  */
 
 function averageHeightOfAllCharacters(characters) {
-  characters.forEach((person) => {
-    return person.height
+  let avg = 0
+  // declaring var for average
+  characters.forEach((char) => {
+    avg +=  Number(char.height)
   })
+  avg /= characters.length
+  //Averaging height of all listed charaters
+  return avg
+  //return average
 }
 
 //UNCOMMENT THE LINES ONE AT A TIME BELOW TO TEST YOUR SOLUTION MANUALLY, THEN COMMENT BACK IN
